@@ -17,3 +17,6 @@ The following are milestones that will define the success of my project.
 | 3/22/2019 | Get button working on Raspberry Pi with C++ | Not yet working in C++|
 | 3/25/2019 | Add button function into code | |
 | 3/25/2019 | Complete documentation for project | |
+
+
+![Image of Pi](https://annaptasznik.github.com/swim-lap-counter-and-timer/pi_photo.png)
