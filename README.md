@@ -6,6 +6,34 @@ The purpose of this project is to build a device to assist swimmers with countin
 
 The primary goal of this project is to extend Event Loop Manager (elma) for use on the Raspberry Pi, as well as to implement hardware features with WiringPi and logging through the Google Sheets API.
 
+## Installation
+### Software
+To do: installation instructions / list dependencies
+
+### Hardware
+The following items are necessary to get started:
+* Raspberry Pi 3 Model B
+* 1 [Squid](https://github.com/simonmonk/squid) RGB Light
+* A button
+
+
+![Image of Pi](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/pi_photo.png)
+
+## Execution
+To do: how do you run this?
+
+## Architecture
+To do: how was this designed, what choices were made, how are things organized?
+
+## Results
+To do: Show results of testing/running your code.
+
+## Acknowledgements
+To do: Mention anyone who helped you.
+
+## References
+To do: list references that got you going.
+
 ## Defining Success
 The following are milestones that will define the success of my project.
 
@@ -18,5 +46,3 @@ The following are milestones that will define the success of my project.
 | 3/25/2019 | Add button function into code | |
 | 3/25/2019 | Complete documentation for project | |
 
-
-![Image of Pi](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/pi_photo.png)
