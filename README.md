@@ -1,6 +1,8 @@
 # Raspberry Pi Swim Lap Counter and Timer
 A poolside device for swimmers to count and time their laps, as well as track speed/distance progress between sessions.
 
+Project completed for UW's Software Engineering for Embedded Systems course.
+
 ## Overview
 The purpose of this project is to build a device to assist swimmers with counting, timing, and tracking progress of their swim laps. 
 
