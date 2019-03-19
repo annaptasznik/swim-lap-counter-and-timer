@@ -59,7 +59,7 @@ Many thanks to those who helped me, including but not limited to [Professor Klav
 * Example code from previous ECEP520 assignments as well as [Elma-project](https://github.com/klavinslab/elma_project)
 * [WiringPi](http://wiringpi.com/) documentation and example code
 
-## Defining Success
+## Project progress
 The following are milestones that will define the success of my project.
 
 | Goal Date | Description | Date Accomplished |
@@ -67,7 +67,7 @@ The following are milestones that will define the success of my project.
 | 3/12/2019 | Create skeleton code with core elma functions/ stopwatch / counter | |
 | 3/15/2019 | Add ability to update Google Sheet | No API for C++, rethinking |
 | 3/18/2019 | Port C++ code to Raspberry Pi | Partially complete |
-| 3/22/2019 | Get button working on Raspberry Pi with C++ | Not yet working in C++|
+| 3/22/2019 | Get button working on Raspberry Pi with C++ | 3/18/2019 |
 | 3/25/2019 | Add button function into code | |
 | 3/25/2019 | Complete documentation for project | |
 
