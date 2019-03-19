@@ -12,28 +12,28 @@ To install the swim lap timer and counter, do the following on the Raspberry Pi.
 
 First, make sure dependencies are installed. This asssumes Raspbian OS.
 
-'''
+```
 sudo apt-get update
 sudo apt-get install -y cmake
 sudo apt-get install -y doxygen
 sudo apt-get install -y cmake
 sudo apt-get install -y libssl-dev
 sudo apt-get install -y wiringPi
-'''
+```
 
 Next, clone and build the swim lap counter.
-'''
+```
 git clone https://github.com/annaptasznik/swim-lap-counter-and-timer
 cd swim-lap-counter-and-timer
 make
 make docs
-'''
+```
 
 Finally, execute it using:
-'''
+```
 cd examples
 bin/blink
-'''
+```
 
 ### Hardware
 The following items are necessary to get started:
