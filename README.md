@@ -19,4 +19,4 @@ The following are milestones that will define the success of my project.
 | 3/25/2019 | Complete documentation for project | |
 
 
-![Image of Pi](https://annaptasznik.github.com/swim-lap-counter-and-timer/images/pi_photo.png)
+![Image of Pi](https://annaptasznik.github.com/swim-lap-counter-and-timer/images/pi_photo.jpg)
