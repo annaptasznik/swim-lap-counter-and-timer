@@ -32,7 +32,9 @@ To do: Show results of testing/running your code.
 To do: Mention anyone who helped you.
 
 ## References
-To do: list references that got you going.
+* [Elma](https://github.com/klavinslab/elma) (Event Loop Manager) libraries
+* Example code from previous ECEP520 assignments as well as [Elma-project](https://github.com/klavinslab/elma_project)
+* [WiringPi](http://wiringpi.com/) documentation and example code
 
 ## Defining Success
 The following are milestones that will define the success of my project.
