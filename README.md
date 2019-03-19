@@ -32,7 +32,7 @@ To do: Show results of testing/running your code.
 To do: Mention anyone who helped you.
 
 ## References
-* [Elma](https://github.com/klavinslab/elma) (Event Loop Manager) libraries
+* [Elma](https://github.com/klavinslab/elma) (Event Loop Manager) library
 * Example code from previous ECEP520 assignments as well as [Elma-project](https://github.com/klavinslab/elma_project)
 * [WiringPi](http://wiringpi.com/) documentation and example code
 
