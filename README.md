@@ -51,14 +51,6 @@ To do: how was this designed, what choices were made, how are things organized?
 ## Results
 To do: Show results of testing/running your code.
 
-## Acknowledgements
-Many thanks to those who helped me, including but not limited to [Professor Klavins](https://github.com/klavinslab), ECEP520 TAs Justin and Henry, Juan Escobar, David Wu, and other classmates.
-
-## References
-* [Elma](https://github.com/klavinslab/elma) (Event Loop Manager) library
-* Example code from previous ECEP520 assignments as well as [Elma-project](https://github.com/klavinslab/elma_project)
-* [WiringPi](http://wiringpi.com/) documentation and example code
-
 ## Project progress
 The following are milestones that will define the success of my project.
 
@@ -71,3 +63,10 @@ The following are milestones that will define the success of my project.
 | 3/25/2019 | Add button function into code | |
 | 3/25/2019 | Complete documentation for project | |
 
+## Acknowledgements
+Many thanks to those who helped me, including but not limited to [Professor Klavins](https://github.com/klavinslab), ECEP520 TAs Justin and Henry, Juan Escobar, David Wu, and other classmates.
+
+## References
+* [Elma](https://github.com/klavinslab/elma) (Event Loop Manager) library
+* Example code from previous ECEP520 assignments as well as [Elma-project](https://github.com/klavinslab/elma_project)
+* [WiringPi](http://wiringpi.com/) documentation and example code
