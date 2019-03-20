@@ -22,6 +22,7 @@ class Stopwatch : public Process {
 
     private:
         bool running = false;
+	high_resolution_clock::time_point session_start_time; 
         high_resolution_clock::time_point start_time; 
         std::chrono::system_clock::duration sum;
         std::chrono::system_clock::duration previous_laptime;
@@ -58,6 +59,7 @@ void Stopwatch::init()
 void Stopwatch::start() {
         if(!running){
             start_time = high_resolution_clock::now();
+	    session_start_time = high_resolution_clock::now();
             running = true;
             printf("started event\n");
             previous_laptime = std::chrono::nanoseconds::zero();
@@ -66,13 +68,15 @@ void Stopwatch::start() {
 void Stopwatch::update() {}
 void Stopwatch::stop() {
     if(running){
+	std::chrono::system_clock::duration session_duration = high_resolution_clock::now() - session_start_time;
 	running = false;
+	
 	std::cout << std::endl;
 	std::cout << "ENDING SESSION..." << std::endl;
 	std::cout << std::endl;
-	std::cout << "Laps completed: "<< total_laps - 1;
+	std::cout << "Laps completed: "<< total_laps - 2;
 	std::cout << std::endl;
-	std::cout << "Total time elapsed: "<< total_laps;
+	std::cout << "Total time elapsed (in sec): "<< seconds_type(session_duration).count();
 	std::cout << std::endl;
 	
 	sum = std::chrono::nanoseconds::zero();;
@@ -92,13 +96,17 @@ void Stopwatch::lap() {
         lap_difference = previous_laptime - sum;
 
         if (seconds_type(lap_difference).count() < 0){
-            std::cout << "this lap is slower than the last" << std::endl;
-            std::cout << seconds_type(lap_difference).count() << std::endl;
+	    std::cout << std::endl;
+            std::cout << "This lap was slower than the last" << std::endl;
+            std::cout << "Time in seconds: "<< seconds_type(sum).count();
+	    std::cout << std::endl;
             emit(Event("slower"));
         }
         else{
-            std::cout << "this lap is faster than the last" << std::endl;
-            std::cout << seconds_type(lap_difference).count() << std::endl;
+	    std::cout << std::endl;
+            std::cout << "This lap was faster than the last" << std::endl;
+            std::cout << "Time in seconds: "<< seconds_type(sum).count();
+	    std::cout << std::endl;
             emit(Event("faster"));
         }
 	
@@ -166,7 +174,7 @@ int main() {
 			m.emit(Event("start"));
             digitalWrite(0, HIGH); delay(200);
             digitalWrite(0, LOW); delay(200);
-            printf("ready go! button is pressed!\n");
+            printf("ready, set , go!\n");
 		}
 	    int i = 0;
         // if button is pressed any other time
