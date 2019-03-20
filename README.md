@@ -17,7 +17,7 @@ The following are project milestones.
 |---------- | ----------- | ----------------- |
 | 3/12/2019 | Create skeleton code with core elma functions/ stopwatch / counter | 3/16/2019 |
 | 3/15/2019 | Add ability to update Google Sheet | No API for C++, rethinking |
-| 3/18/2019 | Port C++ code to Raspberry Pi | Partially complete |
+| 3/18/2019 | Port C++ code to Raspberry Pi | 3/18/2019 |
 | 3/22/2019 | Get button working on Raspberry Pi with C++ | 3/18/2019 |
 | 3/25/2019 | Add button function into code | 3/19/2019 |
 | 3/25/2019 | Complete documentation for project | |
