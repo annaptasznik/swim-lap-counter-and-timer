@@ -17,7 +17,11 @@ The following items are necessary to get started:
 * 1 [Squid](https://github.com/simonmonk/squid) RGB Light
 * A button
 
+LED and button leads are connected as per the below diagram.
 ![Image of Pi](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/pi_photo.png)
+
+Of course, it's nice to see a photo as well.
+![Image of Schematic](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/pi_schematic.png)
 
 ### Software
 To install the swim lap timer and counter, do the following on the Raspberry Pi.
@@ -72,3 +76,4 @@ Many thanks to those who helped me, including but not limited to [Professor Klav
 * [Elma](https://github.com/klavinslab/elma) (Event Loop Manager) library
 * Example code from previous ECEP520 assignments as well as [Elma-project](https://github.com/klavinslab/elma_project)
 * [WiringPi](http://wiringpi.com/) documentation and example code
+* [Fritzing](http://fritzing.org/home/) for schematic graphic
