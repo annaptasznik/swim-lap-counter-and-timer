@@ -3,6 +3,7 @@
 #include "elma.h"
 #include <chrono>
 #include <string>
+#include <wiringPi.h>
 
 using namespace elma;
 using namespace std::chrono;
@@ -17,6 +18,7 @@ class Stopwatch : public Process {
         void update();
         void lap();
         double seconds();
+        int getcolor();
 
     private:
         bool running = false;
@@ -24,8 +26,8 @@ class Stopwatch : public Process {
         std::chrono::system_clock::duration sum;
         std::chrono::system_clock::duration previous_laptime;
         std::chrono::system_clock::duration lap_difference;
+        int color;
 };
-
 
 void Stopwatch::init()
 {
@@ -42,11 +44,17 @@ void Stopwatch::init()
         sum = sum + event;
        }
      });
-
     watch("lap", [this](Event &e) {
         lap();
     });
-   
+    
+    watch("faster", [this](Event &e) {
+        color = 4;
+    });
+    
+    watch("slower", [this](Event &e) {
+        color =5;
+    });
 }
 
 void Stopwatch::start() {
@@ -60,25 +68,22 @@ void Stopwatch::start() {
 void Stopwatch::update() {}
 void Stopwatch::stop() {}
 void Stopwatch::lap() {
-        //running = false;
-        //sum = std::chrono::nanoseconds::zero();
         if(running){
             high_resolution_clock::time_point end_time = high_resolution_clock::now();
-            //running = false;
             std::chrono::system_clock::duration event = end_time - start_time;
             sum = sum + event;
        }
-
         lap_difference = previous_laptime - sum;
-        //std::cout << seconds() << std::endl;
 
         if (seconds_type(lap_difference).count() < 0){
             std::cout << "this lap is slower than the last" << std::endl;
             std::cout << seconds_type(lap_difference).count() << std::endl;
+            emit(Event("slower"));
         }
         else{
             std::cout << "this lap is faster than the last" << std::endl;
             std::cout << seconds_type(lap_difference).count() << std::endl;
+            emit(Event("faster"));
         }
         
         previous_laptime = sum;
@@ -97,37 +102,62 @@ double Stopwatch::seconds(){
         return sec.count();}
 }
 
+int Stopwatch::getcolor(){
+    return color;
+    }
+
 int main() {
 
-    Manager m;
+     Manager m;
 
     Stopwatch watch = Stopwatch();
 
     m.schedule(watch, 10_ms)
     .init()
     .start();
-
-    std::cout << watch.seconds() << std::endl;
-
-    m.emit(Event("start"));
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
-
-    m.emit(Event("lap"));
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-
-    m.emit(Event("lap"));
-    std::this_thread::sleep_for(std::chrono::milliseconds(1100));
-
-
-    m.emit(Event("lap"));
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
-
-    m.emit(Event("lap"));
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
-
-    m.emit(Event("lap"));
-
-    m.emit(Event("stop"));
     
+	wiringPiSetup();
+	
+	/*
+    Pins map as follows:
+	pinMode 1 (18)
+	pinMode 4 (23)
+	pinMode 5 (24)
+	pinMode 0 (17)
+	*/
+	
+	pinMode(1, INPUT);  // button
+	pinMode(4, OUTPUT); // green
+	pinMode(0, OUTPUT); // blue
+	pinMode(5, OUTPUT); // red
+	
+    static int times_pressed = 0;
 
+	for(;;)
+	{
+        // if button is not pressed 
+		if(digitalRead(1) == LOW) { 
+            digitalWrite(0, LOW);
+	} 
+        // if button is pressed for the first time
+		if(digitalRead(1) == HIGH && times_pressed == 0){
+            times_pressed += 1;
+			m.emit(Event("start"));
+            digitalWrite(0, HIGH); delay(500);
+            digitalWrite(0, LOW); delay(500);
+            printf("ready go! button is pressed!\n");
+		}
+
+        // if button is pressed any other time
+		if(digitalRead(1) == HIGH && times_pressed != 0){
+            times_pressed += 1;
+			m.emit(Event("lap"));
+            digitalWrite(watch.getcolor(), HIGH); delay(500);
+            digitalWrite(watch.getcolor(), LOW); delay(500);
+		}
+
+        // if button is held down
+        // emit "stop" event and exit this loop
+	}
+	return 0;
 }
