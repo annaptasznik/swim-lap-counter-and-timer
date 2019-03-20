@@ -18,10 +18,11 @@ The following items are necessary to get started:
 * A button
 
 LED and button leads are connected as per the below diagram.
-![Image of Pi](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/pi_photo.png)
+![Image of Schematic](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/pi_schematic.PNG)
 
 Of course, it's nice to see a photo as well.
-![Image of Schematic](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/pi_schematic.png)
+
+![Image of Pi](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/pi_photo.png)
 
 ### Software
 To install the swim lap timer and counter, do the following on the Raspberry Pi.
