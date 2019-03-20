@@ -67,7 +67,7 @@ The following are milestones that will define the success of my project.
 | 3/15/2019 | Add ability to update Google Sheet | No API for C++, rethinking |
 | 3/18/2019 | Port C++ code to Raspberry Pi | Partially complete |
 | 3/22/2019 | Get button working on Raspberry Pi with C++ | 3/18/2019 |
-| 3/25/2019 | Add button function into code | |
+| 3/25/2019 | Add button function into code | 3/19/2019 |
 | 3/25/2019 | Complete documentation for project | |
 
 ## Acknowledgements
