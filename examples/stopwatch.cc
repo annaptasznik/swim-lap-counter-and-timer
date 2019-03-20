@@ -27,6 +27,7 @@ class Stopwatch : public Process {
         std::chrono::system_clock::duration previous_laptime;
         std::chrono::system_clock::duration lap_difference;
         int color;
+	int total_laps =0;
 };
 
 void Stopwatch::init()
@@ -37,12 +38,9 @@ void Stopwatch::init()
         start();
     });
     watch("stop", [this](Event &e) {
-       if(running){
-        high_resolution_clock::time_point end_time = high_resolution_clock::now();
-        running = false;
-        std::chrono::system_clock::duration event = end_time - start_time;
-        sum = sum + event;
-       }
+    
+	stop();
+       
      });
     watch("lap", [this](Event &e) {
         lap();
@@ -66,13 +64,31 @@ void Stopwatch::start() {
         }
 }
 void Stopwatch::update() {}
-void Stopwatch::stop() {}
+void Stopwatch::stop() {
+    if(running){
+	running = false;
+	std::cout << std::endl;
+	std::cout << "ENDING SESSION..." << std::endl;
+	std::cout << std::endl;
+	std::cout << "Laps completed: "<< total_laps - 1;
+	std::cout << std::endl;
+	std::cout << "Total time elapsed: "<< total_laps;
+	std::cout << std::endl;
+	
+	sum = std::chrono::nanoseconds::zero();;
+	previous_laptime = std::chrono::nanoseconds::zero();;
+	lap_difference = std::chrono::nanoseconds::zero();;
+    }
+    
+    }
+    
 void Stopwatch::lap() {
-        if(running){
+    if(running){
+        total_laps+= 1;
             high_resolution_clock::time_point end_time = high_resolution_clock::now();
             std::chrono::system_clock::duration event = end_time - start_time;
             sum = sum + event;
-       }
+       
         lap_difference = previous_laptime - sum;
 
         if (seconds_type(lap_difference).count() < 0){
@@ -85,10 +101,15 @@ void Stopwatch::lap() {
             std::cout << seconds_type(lap_difference).count() << std::endl;
             emit(Event("faster"));
         }
+	
+	if (std::abs(seconds_type(lap_difference).count())  < 0.01 ){
+	    emit(Event("stop"));
+	}
         
         previous_laptime = sum;
         sum = std::chrono::nanoseconds::zero();
         start_time = high_resolution_clock::now();
+    }
 }
 
 
@@ -143,21 +164,20 @@ int main() {
 		if(digitalRead(1) == HIGH && times_pressed == 0){
             times_pressed += 1;
 			m.emit(Event("start"));
-            digitalWrite(0, HIGH); delay(500);
-            digitalWrite(0, LOW); delay(500);
+            digitalWrite(0, HIGH); delay(200);
+            digitalWrite(0, LOW); delay(200);
             printf("ready go! button is pressed!\n");
 		}
-
+	    int i = 0;
         // if button is pressed any other time
 		if(digitalRead(1) == HIGH && times_pressed != 0){
             times_pressed += 1;
 			m.emit(Event("lap"));
-            digitalWrite(watch.getcolor(), HIGH); delay(500);
-            digitalWrite(watch.getcolor(), LOW); delay(500);
+            digitalWrite(watch.getcolor(), HIGH); delay(200);
+            digitalWrite(watch.getcolor(), LOW); delay(200);
+	    
 		}
-
-        // if button is held down
-        // emit "stop" event and exit this loop
+	
 	}
 	return 0;
 }
