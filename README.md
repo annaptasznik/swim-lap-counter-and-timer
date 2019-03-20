@@ -10,6 +10,18 @@ Using a Raspberry Pi,button, and LED, the device will register every button clic
 
 The primary goal of this project is to extend Event Loop Manager (elma) for use on the Raspberry Pi, as well as to implement hardware features with WiringPi.
 
+## Project progress
+The following are project milestones.
+
+| Goal Date | Description | Date Accomplished |
+|---------- | ----------- | ----------------- |
+| 3/12/2019 | Create skeleton code with core elma functions/ stopwatch / counter | 3/16/2019 |
+| 3/15/2019 | Add ability to update Google Sheet | No API for C++, rethinking |
+| 3/18/2019 | Port C++ code to Raspberry Pi | Partially complete |
+| 3/22/2019 | Get button working on Raspberry Pi with C++ | 3/18/2019 |
+| 3/25/2019 | Add button function into code | 3/19/2019 |
+| 3/25/2019 | Complete documentation for project | |
+
 ## Installation
 ### Hardware
 The following items are necessary to get started:
@@ -57,18 +69,6 @@ To do: how was this designed, what choices were made, how are things organized?
 
 ## Results
 To do: Show results of testing/running your code.
-
-## Project progress
-The following are milestones that will define the success of my project.
-
-| Goal Date | Description | Date Accomplished |
-|---------- | ----------- | ----------------- |
-| 3/12/2019 | Create skeleton code with core elma functions/ stopwatch / counter | |
-| 3/15/2019 | Add ability to update Google Sheet | No API for C++, rethinking |
-| 3/18/2019 | Port C++ code to Raspberry Pi | Partially complete |
-| 3/22/2019 | Get button working on Raspberry Pi with C++ | 3/18/2019 |
-| 3/25/2019 | Add button function into code | 3/19/2019 |
-| 3/25/2019 | Complete documentation for project | |
 
 ## Acknowledgements
 Many thanks to those who helped me, including but not limited to [Professor Klavins](https://github.com/klavinslab), ECEP520 TAs Justin and Henry, Juan Escobar, David Wu, and other classmates.
