@@ -72,17 +72,17 @@ To do: how was this designed, what choices were made, how are things organized?
 When running `bin/stopwatch`, the program runs and waits for a button click. When the first button click is registered, it begins timing and counting the swim lap.
 This state is reflected in the console messaging, as well as by the blue LED light.
 
-![Image of Blue](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/blue.PNG)
+![Image of Blue](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/blue.png)
 
 With every subsequent click, the time in seconds is printed to the console. The light color indicates whether the current lap is faster (green) or slower (red) than the previous lap.
 
-![Image of Green](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/green.PNG)
+![Image of Green](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/green.png)
 
-![Image of Red](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/red.PNG)
+![Image of Red](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/red.png)
 
 Finally, to end all stopwatch() processes and turn off the program, the user must hold the button down for longer than a second. Session results are printed to the console and the LED turns off.
 
-![Image of End](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/end.PNG)
+![Image of End](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/end.png)
 
 
 ## Acknowledgements
