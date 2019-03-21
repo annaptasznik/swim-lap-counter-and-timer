@@ -61,14 +61,28 @@ make docs
 Finally, execute it using:
 ```
 cd examples
-bin/blink
+bin/stopwatch
 ```
 
 ## Architecture
 To do: how was this designed, what choices were made, how are things organized?
 
 ## Results
-To do: Show results of testing/running your code.
+### Running Program
+When running `bin/stopwatch`, the program runs and waits for a button click. When the first button click is registered, it begins timing and counting the swim lap.
+This state is reflected in the console messaging, as well as by the blue LED light.
+
+![Image of Blue](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/blue.PNG)
+
+With every subsequent click, the time in seconds is printed to the console. The light color indicates whether the current lap is faster (green) or slower (red) than the previous lap.
+
+![Image of Green](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/green.PNG)
+![Image of Red](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/red.PNG)
+
+Finally, to end all stopwatch() processes and turn off the program, the user must hold the button down for longer than a second. Session results are printed to the console and the LED turns off.
+
+![Image of End](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/end.PNG)
+
 
 ## Acknowledgements
 Many thanks to those who helped me, including but not limited to [Professor Klavins](https://github.com/klavinslab), ECEP520 TAs Justin and Henry, Juan Escobar, David Wu, and other classmates.
