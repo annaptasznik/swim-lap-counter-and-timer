@@ -77,6 +77,7 @@ This state is reflected in the console messaging, as well as by the blue LED lig
 With every subsequent click, the time in seconds is printed to the console. The light color indicates whether the current lap is faster (green) or slower (red) than the previous lap.
 
 ![Image of Green](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/green.PNG)
+
 ![Image of Red](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/red.PNG)
 
 Finally, to end all stopwatch() processes and turn off the program, the user must hold the button down for longer than a second. Session results are printed to the console and the LED turns off.
