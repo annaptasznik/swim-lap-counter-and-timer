@@ -1,4 +1,4 @@
-Elma: The Event Loop Manager
+swim-lap-counter-and-timer
 ===
 
 Copyright 2019 University of Washington
