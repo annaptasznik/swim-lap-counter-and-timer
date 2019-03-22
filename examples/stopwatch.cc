@@ -4,6 +4,7 @@
 #include <chrono>
 #include <string>
 #include <wiringPi.h>
+#include <fstream>
 
 using namespace elma;
 using namespace std::chrono;
@@ -29,6 +30,8 @@ class Stopwatch : public Process {
         std::chrono::system_clock::duration lap_difference;
         int color;
 	int total_laps =0;
+	string save_csv(vector<double> v, string path) ;
+	vector<double> times;
 };
 
 void Stopwatch::init()
@@ -82,6 +85,9 @@ void Stopwatch::stop() {
 	sum = std::chrono::nanoseconds::zero();;
 	previous_laptime = std::chrono::nanoseconds::zero();;
 	lap_difference = std::chrono::nanoseconds::zero();;
+	
+	save_csv(times, "session_results.csv");
+	
     }
     
     }
@@ -94,6 +100,8 @@ void Stopwatch::lap() {
             sum = sum + event;
        
         lap_difference = previous_laptime - sum;
+	
+	times.push_back(seconds_type(sum).count());
 
         if (seconds_type(lap_difference).count() < 0){
 	    std::cout << std::endl;
@@ -134,6 +142,25 @@ double Stopwatch::seconds(){
 int Stopwatch::getcolor(){
     return color;
     }
+
+string Stopwatch::save_csv(vector<double> v, const string path) {
+          std::ofstream outfile;
+          outfile.open(path);
+          //std::cout << "Saving file" << std::endl;
+          int rows = v.size();
+	    int i =0;
+
+          for (int i = 0; i < rows; i++) {
+                  outfile << v[i];
+		  outfile << ',';
+		  outfile << '\n';
+              }
+
+
+          outfile.close();
+          return path;
+      }
+  
 
 int main() {
 
