@@ -67,8 +67,11 @@ bin/stopwatch
 ## Architecture
 To do: how was this designed, what choices were made, how are things organized?
 
-This project is largely built around a custom elma process called `Stopwatch` which handles time tracking and lap counting with every button click. When the `Stopwatch` process is initialized via `init()`, it defines how various events will be handled, including the initial `start`, final `stop`, and consistent `lap` clicks. These events are emitted in `main()`, where button clicks are registered using WiringPi functions. In this way, button clicks are registered and used to trigger an action.
+### File Structure
+To do: map file structure 
 
+### Design Overview
+This project is largely built around a custom elma process called `Stopwatch` which handles time tracking and lap counting. When the `Stopwatch` process is initialized via `init()`, it defines how various events will be handled, including the initial `start`, final `stop`, and consistent `lap` clicks. These events are emitted in `main()`, where button clicks are registered using WiringPi functions. In other words, button clicks are registered  in `main()` and used to trigger an action defined in `Stopwatch`.
 
 ## Results
 ### Running the Program
