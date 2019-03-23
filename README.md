@@ -68,7 +68,7 @@ bin/stopwatch
 ### Design Overview
 This project is largely built around a custom elma process called `Stopwatch` which handles time tracking and lap counting. When the `Stopwatch` process is initialized via `init()`, it defines how various events will be handled, including the initial `start`, final `stop`, and consistent `lap` clicks. These events are emitted in `main()`, where button clicks are registered using WiringPi functions. In other words, button clicks are registered  in `main()` and used to trigger an action defined in `Stopwatch`.
 
-The events `start`, `lap`, and `stop` correspond to different LED responses.
+The events `start`, `lap`, and `stop` correspond to different LED responses. This behavior was designed to give a swimmer quick feedback about their speed.
 
 ![Image of Events](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/events.PNG)
 
