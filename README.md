@@ -50,7 +50,7 @@ sudo apt-get install -y libssl-dev
 sudo apt-get install -y wiringPi
 ```
 
-Next, clone and build the swim lap counter.
+Next,to clone and build the swim lap counter:
 ```
 git clone https://github.com/annaptasznik/swim-lap-counter-and-timer
 cd swim-lap-counter-and-timer
@@ -58,10 +58,10 @@ make
 make docs
 ```
 
-Finally, execute it using:
+Finally, execute it using (note, you may execute without building. A compiled version is located at `bin/laps`):
 ```
 cd examples
-bin/stopwatch
+bin/laps
 ```
 
 ## Architecture
