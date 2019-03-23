@@ -6,7 +6,7 @@ Project completed for UW's Software Engineering for Embedded Systems course.
 ## Overview
 The purpose of this project is to build a device prototype that assists swimmers with counting, timing, and tracking progress of their swim laps. 
 
-Using a Raspberry Pi,button, and LED, the device will register every button click as the beginning of a new lap. It will count the number of laps (ie, button clicks), as well as count the time between clicks. LED color indicates whether the most recent lap was slower or faster than the last. Finally, a swimmer registers the end of their session by holding down the button, after which their results are written to disk for later review.
+Using a Raspberry Pi, button, and LED, the device registers every button click as the beginning of a new lap. It counts the number of laps (ie, button clicks), as well the time between clicks. LED color indicates whether the most recent lap was slower or faster than the last. Finally, a swimmer registers the end of their session by holding down the button, after which their results are written to disk for later review.
 
 The primary goal of this project is to extend Event Loop Manager (elma) for use on the Raspberry Pi, as well as to implement hardware features with WiringPi.
 
@@ -16,11 +16,11 @@ The following are project milestones.
 | Goal Date | Description | Date Accomplished |
 |---------- | ----------- | ----------------- |
 | 3/12/2019 | Create skeleton code with core elma functions/ stopwatch / counter | 3/16/2019 |
-| 3/15/2019 | Add ability to write file | Todo |
+| 3/15/2019 | Add ability to write file | 3/21/2019 |
 | 3/18/2019 | Port C++ code to Raspberry Pi | 3/18/2019 |
 | 3/22/2019 | Get button working on Raspberry Pi with C++ | 3/18/2019 |
 | 3/23/2019 | Add button function into code | 3/19/2019 |
-| 3/23/2019 | Complete documentation for project |Todo |
+| 3/23/2019 | Complete documentation for project |3/22/2019 |
 
 ## Installation
 ### Hardware
@@ -37,9 +37,9 @@ Of course, it's nice to see a photo as well.
 ![Image of Pi](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/pi_photo.png)
 
 ### Software
-To install the swim lap timer and counter, do the following on the Raspberry Pi.
+To install the swim lap timer and counter, do the following on the Raspberry Pi (Raspbian OS).
 
-First, make sure dependencies are installed. This asssumes Raspbian OS.
+First, install dependencies.
 
 ```
 sudo apt-get update
@@ -65,11 +65,6 @@ bin/stopwatch
 ```
 
 ## Architecture
-To do: how was this designed, what choices were made, how are things organized?
-
-### File Structure
-To do: map file structure 
-
 ### Design Overview
 This project is largely built around a custom elma process called `Stopwatch` which handles time tracking and lap counting. When the `Stopwatch` process is initialized via `init()`, it defines how various events will be handled, including the initial `start`, final `stop`, and consistent `lap` clicks. These events are emitted in `main()`, where button clicks are registered using WiringPi functions. In other words, button clicks are registered  in `main()` and used to trigger an action defined in `Stopwatch`.
 
@@ -90,8 +85,9 @@ Finally, to end all stopwatch() processes and turn off the program, the user mus
 
 ![Image of End](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/end.png)
 
-### Testing
-To do
+When a session is completed, all results are written to a file `/examples/session_results.csv`. This file simply shows each lap time (in seconds).
+
+![Image of CSV](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/session_results.png)
 
 ## Acknowledgements
 Many thanks to those who helped me, including but not limited to [Professor Klavins](https://github.com/klavinslab), ECEP520 TAs Justin and Henry, Juan Escobar, David Wu, and other classmates.
