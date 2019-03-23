@@ -87,7 +87,7 @@ Finally, to end all stopwatch() processes and turn off the program, the user mus
 
 When a session is completed, all results are written to a file `/examples/session_results.csv`. This file simply shows each lap time (in seconds).
 
-![Image of CSV](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/session_results.png)
+![Image of CSV](https://github.com/annaptasznik/swim-lap-counter-and-timer/blob/master/images/session_results.PNG)
 
 ## Acknowledgements
 Many thanks to those who helped me, including but not limited to [Professor Klavins](https://github.com/klavinslab), ECEP520 TAs Justin and Henry, Juan Escobar, David Wu, and other classmates.
